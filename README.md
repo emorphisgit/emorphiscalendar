@@ -6,7 +6,7 @@
 This Flutter package provides a customizable calendar with both monthly and weekly views, allowing users to easily navigate and select dates. The package also includes an event calendar widget for Flutter with support for dynamic events, date range restrictions, and event dot colors.
 
 
-Make sure to check out [examples](https://gitlab.emorphis.com/Chetan.Kailodia/emor_calendar/-/tree/master/example) for more details.
+Make sure to check out [examples](https://github.com/emorphisgit/emorphiscalendar/example) for more details.
 
 
 ## Features
@@ -24,7 +24,7 @@ Add this package to your project by including it in your pubspec.yaml file:
 dependencies:
   flutter:
     sdk: flutter
-  emor_calendar: ^0.0.2 
+  emorphiscalendar: ^0.0.1
 ```
 
 Then, run:
@@ -546,7 +546,7 @@ This package is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Links
 
-* [GitHub Repository](https://gitlab.emorphis.com/Chetan.Kailodia/emor_calendar)
+* [GitHub Repository](https://github.com/emorphisgit/emorphiscalendar.git)
 * [Documentation](https://pub.dev/packages/emorphiscalendar)
 
 

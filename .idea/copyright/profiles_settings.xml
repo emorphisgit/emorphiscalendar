@@ -1,0 +1,11 @@
+<component name="CopyrightManager">
+  <settings default="Chetan">
+    <module2copyright>
+      <element module="Project Files" copyright="Chetan" />
+    </module2copyright>
+    <LanguageOptions name="Dart">
+      <option name="fileTypeOverride" value="3" />
+      <option name="block" value="false" />
+    </LanguageOptions>
+  </settings>
+</component>

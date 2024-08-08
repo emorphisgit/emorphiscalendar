@@ -1,4 +1,4 @@
-# emorphiscalendar
+# Emorphis Calendar
 
 
 ## Description
@@ -6,7 +6,7 @@
 This Flutter package provides a customizable calendar with both monthly and weekly views, allowing users to easily navigate and select dates. The package also includes an event calendar widget for Flutter with support for dynamic events, date range restrictions, and event dot colors.
 
 
-Make sure to check out [examples](https://github.com/emorphisgit/emorphiscalendar/example) for more details.
+Make sure to check out [examples](https://github.com/emorphisgit/emorphiscalendar/tree/main/example) for more details.
 
 
 ## Features
@@ -37,8 +37,10 @@ flutter pub get
 
 # Monthly Calendar
 
+Make sure to check out [examples](https://github.com/emorphisgit/emorphiscalendar/tree/main/example) for more details.
+
 ```
-import 'package:emor_calendar/emorphis_month_calendar.dart';
+import 'package:emorphiscalendar/calendar/emorphis_month_calendar.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -55,8 +57,10 @@ class MyApp extends StatelessWidget {
 
 # Weekly Calendar
 
+Make sure to check out [examples](https://github.com/emorphisgit/emorphiscalendar/tree/main/example) for more details.
+
 ```
-import 'package:emor_calendar/emorphis_week_calendar.dart';
+import 'package:emorphiscalendar/calendar/emorphis_week_calendar.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -75,8 +79,10 @@ class MyApp extends StatelessWidget {
 
 The event list is automatically shown when you select a date with events in either the monthly or weekly calendar views. Customize the event list by modifying the _buildEventList method in the emorphis_calendar.dart file.
 
+Make sure to check out [examples](https://github.com/emorphisgit/emorphiscalendar/tree/main/example) for more details.
+
 ```
-import 'package:emor_calendar/emorphis_week_calendar.dart';
+import 'package:emorphiscalendar/calendar/emorphis_event_calendar.dart';
 
 
 class EventCalendarScreen extends StatefulWidget {
@@ -206,9 +212,13 @@ class _EventCalendarScreenState extends State<EventCalendarScreen> {
 ```
 
 # Holiday Calendar
+
+Make sure to check out [examples](https://github.com/emorphisgit/emorphiscalendar/tree/main/example) for more details.
+
+
 ```
 import 'dart:convert';
-import 'package:emor_calendar/calendar/emorphis_holiday_calendar.dart';
+import 'package:emorphiscalendar/calendar/emorphis_holiday_calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'country.dart';
@@ -315,7 +325,10 @@ class _HolidayCalendarScreenState extends State<HolidayCalendarScreen> {
 }
 
 ```
+
 ## Country Model
+
+Make sure to check out [examples](https://github.com/emorphisgit/emorphiscalendar/tree/main/example) for more details.
 
 ```
 class Country {
@@ -528,6 +541,9 @@ final List<Country> countryList = [
 ## API
 
 ### EmorphisEventCalendar<T>
+
+Make sure to check out [examples](https://github.com/emorphisgit/emorphiscalendar/tree/main/example) for more details.
+
 
 * focusedDay:  The currently focused day in the calendar.
 * selectedDay: The currently selected day in the calendar.

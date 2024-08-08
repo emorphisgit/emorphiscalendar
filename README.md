@@ -37,7 +37,7 @@ flutter pub get
 
 # Monthly Calendar
 
-Make sure to check out [examples](https://github.com/emorphisgit/emorphiscalendar/tree/main/example) for more details.
+Make sure to check out [Monthly](https://github.com/emorphisgit/emorphiscalendar/blob/main/example/lib/my_calendar_screen/month_calender.dart) for more details.
 
 ```
 import 'package:emorphiscalendar/calendar/emorphis_month_calendar.dart';
@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
 
 # Weekly Calendar
 
-Make sure to check out [examples](https://github.com/emorphisgit/emorphiscalendar/tree/main/example) for more details.
+Make sure to check out [Weekly](https://github.com/emorphisgit/emorphiscalendar/blob/main/example/lib/my_calendar_screen/week_calendar.dart) for more details.
 
 ```
 import 'package:emorphiscalendar/calendar/emorphis_week_calendar.dart';
@@ -79,7 +79,7 @@ class MyApp extends StatelessWidget {
 
 The event list is automatically shown when you select a date with events in either the monthly or weekly calendar views. Customize the event list by modifying the _buildEventList method in the emorphis_calendar.dart file.
 
-Make sure to check out [examples](https://github.com/emorphisgit/emorphiscalendar/tree/main/example) for more details.
+Make sure to check out [Event](https://github.com/emorphisgit/emorphiscalendar/blob/main/example/lib/my_calendar_screen/event_calender.dart) for more details.
 
 ```
 import 'package:emorphiscalendar/calendar/emorphis_event_calendar.dart';
@@ -213,7 +213,7 @@ class _EventCalendarScreenState extends State<EventCalendarScreen> {
 
 # Holiday Calendar
 
-Make sure to check out [examples](https://github.com/emorphisgit/emorphiscalendar/tree/main/example) for more details.
+Make sure to check out [Holiday](https://github.com/emorphisgit/emorphiscalendar/blob/main/example/lib/my_calendar_screen/holiday_calendar.dart) for more details.
 
 
 ```
@@ -328,7 +328,7 @@ class _HolidayCalendarScreenState extends State<HolidayCalendarScreen> {
 
 ## Country Model
 
-Make sure to check out [examples](https://github.com/emorphisgit/emorphiscalendar/tree/main/example) for more details.
+Make sure to check out [Country](https://github.com/emorphisgit/emorphiscalendar/blob/main/example/lib/my_calendar_screen/country.dart) for more details.
 
 ```
 class Country {

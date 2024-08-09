@@ -42,9 +42,9 @@ flutter pub get
 
 # Monthly Calendar
 
-| ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/month.png) |
-|:-------------------------------------------------------------------------------------------:|
-|                                    `'Monthly Calendar'`                                     |
+| ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/month.png) | ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/month_2.png) |
+|:-------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------:|
+|                                     `Monthly Calendar`                                      |                                      `Monthly Calendar`                                       |
 
 Make sure to check out [Monthly](https://github.com/emorphisgit/emorphiscalendar/blob/main/example/lib/my_calendar_screen/month_calender.dart) for more details.
 
@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
 
 | ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/week.png) |
 |:------------------------------------------------------------------------------------------:|
-|                                    `'Weekly Calendar'`                                     |
+|                                     `Weekly Calendar`                                      |
 
 Make sure to check out [Weekly](https://github.com/emorphisgit/emorphiscalendar/blob/main/example/lib/my_calendar_screen/week_calendar.dart) for more details.
 
@@ -92,10 +92,10 @@ class MyApp extends StatelessWidget {
 
 The event list is automatically shown when you select a date with events in either the monthly or weekly calendar views. Customize the event list by modifying the _buildEventList method in the emorphis_calendar.dart file.
 
+| ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/event.png) | ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/event_2.png) |
+|:-------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------:|
+|                                      `Event Calendar`                                       |                                       `Event Calendar`                                        |
 
-| ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/event.png) |
-|:-------------------------------------------------------------------------------------------:|
-|                                     `'Event Calendar'`                                      |
 
 Make sure to check out [Event](https://github.com/emorphisgit/emorphiscalendar/blob/main/example/lib/my_calendar_screen/event_calender.dart) for more details.
 

@@ -6,6 +6,11 @@
 
 Highly customizable, feature-packed calendar widget for Flutter.
 
+| ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/gif/week_month.gif) | ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/gif/event.gif) | ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/gif/holiday.gif) |
+|:-------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------:|
+|                              **Emorphis Week Month Calendar** with custom styles                              |                                **Emorphis Event Calendar** with custom builders                                 |                               **Emorphis Holiday Calendar** with custom builders                                |
+
+
 ## Description
 
 This Flutter package provides a customizable calendar with both monthly and weekly views, allowing users to easily navigate and select dates. The package also includes an event calendar widget for Flutter with support for dynamic events, date range restrictions, and event dot colors.

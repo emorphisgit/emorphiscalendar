@@ -1,6 +1,11 @@
 # Emorphis Calendar
 
 
+[![Pub Package](https://img.shields.io/pub/v/emorphiscalendar.svg?style=flat-square)](https://pub.dartlang.org/packages/emorphiscalendar)
+[![Awesome Flutter](https://img.shields.io/badge/Awesome-Flutter-52bdeb.svg?longCache=true&style=flat-square)](https://github.com/Solido/awesome-flutter)
+
+Highly customizable, feature-packed calendar widget for Flutter.
+
 ## Description
 
 This Flutter package provides a customizable calendar with both monthly and weekly views, allowing users to easily navigate and select dates. The package also includes an event calendar widget for Flutter with support for dynamic events, date range restrictions, and event dot colors.

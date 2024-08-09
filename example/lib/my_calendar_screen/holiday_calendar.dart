@@ -84,6 +84,7 @@ class _HolidayCalendarScreenState extends State<HolidayCalendarScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Holiday Calendar'),
+        backgroundColor: Colors.blue.withOpacity(0.5),
         actions: [
           Align(
             alignment: Alignment.centerLeft,

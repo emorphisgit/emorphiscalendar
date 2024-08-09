@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+/// A model class representing a holiday with a [date] and a [name].
 class Holiday {
   final DateTime date;
   final String name;
@@ -11,16 +12,40 @@ class Holiday {
   Holiday(this.date, this.name);
 }
 
+/// A customizable holiday calendar widget that displays a month view with days
+/// arranged in a grid, highlighting holidays and allowing for day selection.
+///
+/// The calendar also provides a list of holidays for the selected day.
 class EmorphisHolidayCalendar extends StatefulWidget {
+  /// A list of holidays to be displayed on the calendar.
   final List<Holiday> holidays;
+
+  /// The initial day that is focused when the calendar is first created.
   final DateTime? initialFocusedDay;
+
+  /// The initial day that is selected when the calendar is first created.
   final DateTime? initialSelectedDay;
+
+  /// The color used to highlight the selected day.
   final Color selectedDayColor;
+
+  /// The color used to highlight today.
   final Color todayColor;
+
+  /// The color used for the text on Sundays.
   final Color sundayTextColor;
+
+  /// The locale string used to format the days of the week and month names.
   final String localeString;
+
+  /// Callback function that is triggered when the focused day is changed.
+  /// The new focused [DateTime] object is passed as a parameter.
   final ValueChanged<DateTime> onFocusedDayChanged;
 
+  /// Creates an instance of [EmorphisHolidayCalendar].
+  ///
+  /// All parameters are optional except for the list of holidays and the
+  /// [onFocusedDayChanged] callback.
   const EmorphisHolidayCalendar({
     super.key,
     required this.holidays,
@@ -51,6 +76,8 @@ class _EmorphisHolidayCalendarState extends State<EmorphisHolidayCalendar> {
     _updateSelectedDayHolidays();
   }
 
+  /// Returns a list of [DateTime] objects representing all the days in the
+  /// month of the given [date].
   List<DateTime> _daysInMonth(DateTime date) {
     DateTime lastOfMonth = DateTime(date.year, date.month + 1, 0);
 
@@ -60,12 +87,14 @@ class _EmorphisHolidayCalendarState extends State<EmorphisHolidayCalendar> {
     );
   }
 
+  /// Updates the list of holidays for the currently selected day.
   void _updateSelectedDayHolidays() {
     _selectedDayHolidays = widget.holidays
         .where((holiday) => _isSameDay(holiday.date, _selectedDay))
         .toList();
   }
 
+  /// Checks if two [DateTime] objects represent the same calendar day.
   bool _isSameDay(DateTime date1, DateTime date2) {
     return date1.year == date2.year &&
         date1.month == date2.month &&
@@ -86,6 +115,7 @@ class _EmorphisHolidayCalendarState extends State<EmorphisHolidayCalendar> {
     );
   }
 
+  /// Builds the header row with navigation arrows and the current month displayed.
   Widget _buildHeader() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,6 +146,11 @@ class _EmorphisHolidayCalendarState extends State<EmorphisHolidayCalendar> {
     );
   }
 
+  /// Builds the grid of day widgets representing the current month.
+  ///
+  /// Each day widget is a tappable container that highlights the selected day,
+  /// today, Sundays, and holidays with the appropriate colors. Empty cells are added
+  /// to align the first day of the month with its corresponding weekday.
   Widget _buildDaysGrid(List<DateTime> days) {
     int firstWeekday = days.first.weekday;
     int leadingEmptyCells = firstWeekday % 7;
@@ -196,6 +231,9 @@ class _EmorphisHolidayCalendarState extends State<EmorphisHolidayCalendar> {
     );
   }
 
+  /// Builds a list of holidays for the currently selected day.
+  ///
+  /// If no holidays are found, a message indicating this is displayed.
   Widget _buildHolidayList() {
     if (_selectedDayHolidays.isEmpty) {
       return Container(
@@ -218,9 +256,14 @@ class _EmorphisHolidayCalendarState extends State<EmorphisHolidayCalendar> {
   }
 }
 
+/// A widget that displays the headers for the days of the week, customized by locale.
 class CalendarWeekDayHolidayHeader extends StatelessWidget {
+  /// The locale string used to format the day names.
   final String locale;
 
+  /// Creates an instance of [CalendarWeekDayHolidayHeader].
+  ///
+  /// The [locale] parameter is required to ensure proper localization.
   const CalendarWeekDayHolidayHeader({
     super.key,
     required this.locale, // Add locale parameter

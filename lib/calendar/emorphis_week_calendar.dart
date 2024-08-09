@@ -7,15 +7,39 @@ import 'package:intl/intl.dart';
 
 import 'calendar_week_day.dart';
 
+/// A customizable weekly calendar widget that displays a week view and allows
+/// for day selection. This widget is designed to be reusable and adaptable to
+/// various use cases.
+///
+/// The calendar shows the days of the week, highlights the selected day, today,
+/// and Sundays with customizable colors, and allows the user to navigate between
+/// weeks with swipe gestures or arrow buttons.
 class EmorphisWeeklyCalendar extends StatefulWidget {
+  /// The initial day that is focused when the calendar is first created.
   final DateTime initialFocusedDay;
+
+  /// The initial day that is selected when the calendar is first created.
   final DateTime initialSelectedDay;
+
+  /// Callback function that is triggered when a day is selected.
+  /// The selected [DateTime] object is passed as a parameter.
   final Function(DateTime) onDaySelected;
+
+  /// The color used to highlight the selected day.
   final Color selectedColor;
+
+  /// The color used to highlight today.
   final Color todayColor;
+
+  /// The color used to highlight Sundays.
   final Color sundayColor;
+
+  /// The default text color used for the day numbers.
   final Color defaultTextColor;
 
+  /// Creates an instance of [EmorphisWeeklyCalendar].
+  ///
+  /// All parameters are required except for colors, which have default values.
   const EmorphisWeeklyCalendar({
     Key? key,
     required this.initialFocusedDay,
@@ -42,6 +66,8 @@ class _EmorphisWeeklyCalendarState extends State<EmorphisWeeklyCalendar> {
     _selectedDay = widget.initialSelectedDay;
   }
 
+  /// Returns a list of [DateTime] objects representing the days in the week
+  /// of the given [date]. The week starts from Sunday.
   List<DateTime> _daysInWeek(DateTime date) {
     int daysFromSunday = date.weekday % 7;
     DateTime firstDayOfWeek = date.subtract(Duration(days: daysFromSunday));
@@ -52,6 +78,8 @@ class _EmorphisWeeklyCalendarState extends State<EmorphisWeeklyCalendar> {
     );
   }
 
+  /// Handles horizontal swipe gestures to navigate between weeks.
+  /// Swiping left moves to the next week, and swiping right moves to the previous week.
   void _onHorizontalDrag(DragEndDetails details) {
     if (details.primaryVelocity == null) return;
 
@@ -83,6 +111,7 @@ class _EmorphisWeeklyCalendarState extends State<EmorphisWeeklyCalendar> {
     );
   }
 
+  /// Builds the header row with navigation arrows and the current month displayed.
   Widget _buildHeader() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -111,6 +140,10 @@ class _EmorphisWeeklyCalendarState extends State<EmorphisWeeklyCalendar> {
     );
   }
 
+  /// Builds the row of day widgets representing the current week.
+  ///
+  /// Each day widget is a tappable container that highlights the selected day,
+  /// today, and Sundays with the appropriate colors.
   Widget _buildDaysRow(List<DateTime> days) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,

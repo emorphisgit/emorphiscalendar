@@ -7,14 +7,34 @@ import 'package:intl/intl.dart';
 
 import 'calendar_week_day.dart';
 
+/// A customizable monthly calendar widget that displays a month view with days
+/// arranged in a grid. This widget allows for day selection and navigation
+/// between months.
+///
+/// The calendar highlights the selected day, today, and Sundays with customizable colors.
 class EmorphisMonthCalendar extends StatefulWidget {
+  /// The initial day that is focused when the calendar is first created.
   final DateTime? initialFocusedDay;
+
+  /// The initial day that is selected when the calendar is first created.
   final DateTime? initialSelectedDay;
+
+  /// The color used to highlight the selected day.
   final Color selectedDayColor;
+
+  /// The color used to highlight today.
   final Color todayColor;
+
+  /// The color used for the text on Sundays.
   final Color sundayTextColor;
+
+  /// Callback function that is triggered when a day is selected.
+  /// The selected [DateTime] object is passed as a parameter.
   final void Function(DateTime)? onDaySelected;
 
+  /// Creates an instance of [EmorphisMonthCalendar].
+  ///
+  /// All parameters are optional except for colors, which have default values.
   const EmorphisMonthCalendar({
     super.key,
     this.initialFocusedDay,
@@ -40,6 +60,8 @@ class _EmorphisMonthCalendarState extends State<EmorphisMonthCalendar> {
     _selectedDay = widget.initialSelectedDay ?? DateTime.now();
   }
 
+  /// Returns a list of [DateTime] objects representing all the days in the
+  /// month of the given [date].
   List<DateTime> _daysInMonth(DateTime date) {
     DateTime lastOfMonth = DateTime(date.year, date.month + 1, 0);
 
@@ -64,6 +86,7 @@ class _EmorphisMonthCalendarState extends State<EmorphisMonthCalendar> {
     );
   }
 
+  /// Builds the header row with navigation arrows and the current month displayed.
   Widget _buildHeader() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -92,6 +115,11 @@ class _EmorphisMonthCalendarState extends State<EmorphisMonthCalendar> {
     );
   }
 
+  /// Builds the grid of day widgets representing the current month.
+  ///
+  /// Each day widget is a tappable container that highlights the selected day,
+  /// today, and Sundays with the appropriate colors. Empty cells are added
+  /// to align the first day of the month with its corresponding weekday.
   Widget _buildDaysGrid(List<DateTime> days) {
     int firstWeekday = days.first.weekday;
     int leadingEmptyCells = firstWeekday % 7;

@@ -6,16 +6,42 @@ import 'package:intl/intl.dart';
 
 import 'calendar_week_day.dart';
 
+/// A customizable event calendar widget that displays events
+/// on specific dates within a month. The widget allows navigation
+/// between months and supports selecting days.
+///
+/// [T] is the type of event data associated with a specific date.
 class EmorphisEventCalendar<T> extends StatefulWidget {
+  /// The currently focused day in the calendar, typically the
+  /// first day of the month being displayed.
   final DateTime focusedDay;
-  final DateTime selectedDay;
-  final Map<DateTime, List<T>> events;
-  final ValueChanged<DateTime> onDaySelected;
-  final ValueChanged<DateTime> onFocusedDayChanged;
-  final Color eventDotColor;
-  final DateTime? minDate; // Optional parameter for minimum date
-  final DateTime? maxDate; // Optional parameter for maximum date
 
+  /// The currently selected day in the calendar.
+  final DateTime selectedDay;
+
+  /// A map of dates to lists of events occurring on those dates.
+  final Map<DateTime, List<T>> events;
+
+  /// Callback when a day is selected.
+  final ValueChanged<DateTime> onDaySelected;
+
+  /// Callback when the focused day changes, usually due to
+  /// navigation between months.
+  final ValueChanged<DateTime> onFocusedDayChanged;
+
+  /// The color of the dot indicating an event on a specific day.
+  final Color eventDotColor;
+
+  /// Optional parameter to specify the minimum date selectable in the calendar.
+  final DateTime? minDate;
+
+  /// Optional parameter to specify the maximum date selectable in the calendar.
+  final DateTime? maxDate;
+
+  /// Creates an [EmorphisEventCalendar] widget.
+  ///
+  /// The [focusedDay], [selectedDay], [events], [onDaySelected], and
+  /// [onFocusedDayChanged] parameters are required.
   const EmorphisEventCalendar({
     super.key,
     required this.focusedDay,
@@ -23,9 +49,9 @@ class EmorphisEventCalendar<T> extends StatefulWidget {
     required this.events,
     required this.onDaySelected,
     required this.onFocusedDayChanged,
-    this.eventDotColor = Colors.red, // Default event dot color
-    this.minDate, // Optional minimum date
-    this.maxDate, // Optional maximum date
+    this.eventDotColor = Colors.red,
+    this.minDate,
+    this.maxDate,
   });
 
   @override
@@ -34,6 +60,7 @@ class EmorphisEventCalendar<T> extends StatefulWidget {
 }
 
 class _EmorphisEventCalendarState<T> extends State<EmorphisEventCalendar<T>> {
+  /// Generates a list of all the days in the given month.
   List<DateTime> _daysInMonth(DateTime date) {
     DateTime lastOfMonth = DateTime(date.year, date.month + 1, 0);
 
@@ -58,6 +85,8 @@ class _EmorphisEventCalendarState<T> extends State<EmorphisEventCalendar<T>> {
     );
   }
 
+  /// Builds the header row containing the month and year,
+  /// along with navigation arrows.
   Widget _buildHeader() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -90,6 +119,9 @@ class _EmorphisEventCalendarState<T> extends State<EmorphisEventCalendar<T>> {
     );
   }
 
+  /// Builds the grid of days in the currently focused month.
+  ///
+  /// Days outside the selectable date range are shown in grey.
   Widget _buildDaysGrid(List<DateTime> days) {
     int firstWeekday = days.first.weekday;
     int leadingEmptyCells = firstWeekday % 7;

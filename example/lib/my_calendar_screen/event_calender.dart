@@ -23,7 +23,7 @@ class _EventCalendarScreenState extends State<EventCalendarScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Emorphis Event Calendar'),
+        title: const Text('Emorphis Event'),
         backgroundColor: Colors.blue.withOpacity(0.5),
         actions: [
           _buildAddEventButton(),

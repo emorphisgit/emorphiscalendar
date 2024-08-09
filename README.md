@@ -232,7 +232,7 @@ class _EventCalendarScreenState extends State<EventCalendarScreen> {
 # Holiday Calendar
 
 
-| ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/holiday_nill.png) | ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/holiday.png) |
+| ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/holidat_nill.png) | ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/holiday.png) |
 |:--------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------:|
 |                                        `Select Day Holiday`                                        |                                      `Holiday Calendar`                                       |
 

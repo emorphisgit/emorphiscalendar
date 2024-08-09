@@ -66,9 +66,9 @@ class MyApp extends StatelessWidget {
 
 # Weekly Calendar
 
-| ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/week.png) |
-|:------------------------------------------------------------------------------------------:|
-|                                     `Weekly Calendar`                                      |
+| ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/week.png) | ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/week_2.png) |
+|:------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------:|
+|                                     `Weekly Calendar`                                      |                                      `Weekly Calendar`                                       |
 
 Make sure to check out [Weekly](https://github.com/emorphisgit/emorphiscalendar/blob/main/example/lib/my_calendar_screen/week_calendar.dart) for more details.
 

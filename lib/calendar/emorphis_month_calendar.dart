@@ -101,7 +101,7 @@ class _EmorphisMonthCalendarState extends State<EmorphisMonthCalendar> {
         ),
         Text(
           DateFormat.yMMMM().format(_focusedDay),
-          style: TextStyle(fontSize: 20.0),
+          style: const TextStyle(fontSize: 20.0),
         ),
         IconButton(
           icon: Icon(Icons.arrow_forward),
@@ -123,65 +123,102 @@ class _EmorphisMonthCalendarState extends State<EmorphisMonthCalendar> {
   Widget _buildDaysGrid(List<DateTime> days) {
     int firstWeekday = days.first.weekday;
     int leadingEmptyCells = firstWeekday % 7;
+    int totalDaysInGrid = days.length + leadingEmptyCells;
+    int trailingEmptyCells = 7 - (totalDaysInGrid % 7);
+
+    // Previous month's last days
+    List<DateTime> previousMonthDays = List.generate(
+      leadingEmptyCells,
+      (index) => DateTime(
+        _focusedDay.year,
+        _focusedDay.month,
+        1 - (leadingEmptyCells - index),
+      ),
+    );
+
+    // Next month's first days
+    List<DateTime> nextMonthDays = List.generate(
+      trailingEmptyCells,
+      (index) => DateTime(
+        _focusedDay.year,
+        _focusedDay.month + 1,
+        index + 1,
+      ),
+    );
 
     return GridView.builder(
       shrinkWrap: true,
-      itemCount: days.length + leadingEmptyCells,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      itemCount: days.length + leadingEmptyCells + trailingEmptyCells,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 7,
       ),
       itemBuilder: (context, index) {
         if (index < leadingEmptyCells) {
-          return SizedBox.shrink(); // Empty cell before first day
+          DateTime day = previousMonthDays[index];
+          return _buildDayContainer(day, isInCurrentMonth: false);
+        } else if (index >= days.length + leadingEmptyCells) {
+          DateTime day = nextMonthDays[index - days.length - leadingEmptyCells];
+          return _buildDayContainer(day, isInCurrentMonth: false);
+        } else {
+          DateTime day = days[index - leadingEmptyCells];
+          return _buildDayContainer(day, isInCurrentMonth: true);
         }
-        DateTime day = days[index - leadingEmptyCells];
-        bool isSelected = day.day == _selectedDay.day &&
-            day.month == _selectedDay.month &&
-            day.year == _selectedDay.year;
-        bool isToday = day.day == DateTime.now().day &&
-            day.month == DateTime.now().month &&
-            day.year == DateTime.now().year;
-        bool isSunday = day.weekday == DateTime.sunday;
+      },
+    );
+  }
 
-        return GestureDetector(
-          onTap: () {
-            setState(() {
-              _selectedDay = day;
-            });
-            if (widget.onDaySelected != null) {
-              widget.onDaySelected!(day);
-            }
-          },
-          child: Container(
-            alignment: Alignment.center,
-            child: Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(
-                color: isSelected
-                    ? widget.selectedDayColor
-                    : isToday
-                        ? widget.todayColor.withOpacity(0.5)
-                        : null,
-                borderRadius: BorderRadius.circular(8.0),
-              ),
-              alignment: Alignment.center,
-              child: Text(
-                day.day.toString(),
-                style: TextStyle(
-                  color: isSelected
+  Widget _buildDayContainer(DateTime day, {required bool isInCurrentMonth}) {
+    bool isSelected = day.day == _selectedDay.day &&
+        day.month == _selectedDay.month &&
+        day.year == _selectedDay.year;
+    bool isToday = day.day == DateTime.now().day &&
+        day.month == DateTime.now().month &&
+        day.year == DateTime.now().year;
+    bool isSunday = day.weekday == DateTime.sunday;
+
+    return GestureDetector(
+      onTap: () {
+        if (isInCurrentMonth) {
+          setState(() {
+            _selectedDay = day;
+          });
+          if (widget.onDaySelected != null) {
+            widget.onDaySelected!(day);
+          }
+        }
+      },
+      child: Container(
+        alignment: Alignment.center,
+        child: Container(
+          height: 40,
+          width: 40,
+          decoration: BoxDecoration(
+            color: isSelected
+                ? widget.selectedDayColor
+                : isToday
+                    ? widget.todayColor.withOpacity(0.5)
+                    : null,
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            day.day.toString(),
+            style: TextStyle(
+              color: isSelected
+                  ? Colors.white
+                  : isToday
                       ? Colors.white
-                      : isToday
-                          ? Colors.white
-                          : isSunday
-                              ? widget.sundayTextColor
-                              : Colors.black,
-                ),
-              ),
+                      : isSunday
+                          ? !isInCurrentMonth
+                              ? Colors.grey
+                              : widget.sundayTextColor
+                          : isInCurrentMonth
+                              ? Colors.black
+                              : Colors.grey,
             ),
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }

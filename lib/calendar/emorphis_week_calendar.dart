@@ -41,7 +41,7 @@ class EmorphisWeeklyCalendar extends StatefulWidget {
   ///
   /// All parameters are required except for colors, which have default values.
   const EmorphisWeeklyCalendar({
-    Key? key,
+    super.key,
     required this.initialFocusedDay,
     required this.initialSelectedDay,
     required this.onDaySelected,
@@ -49,7 +49,7 @@ class EmorphisWeeklyCalendar extends StatefulWidget {
     this.todayColor = Colors.blue,
     this.sundayColor = Colors.red,
     this.defaultTextColor = Colors.black,
-  }) : super(key: key);
+  });
 
   @override
   _EmorphisWeeklyCalendarState createState() => _EmorphisWeeklyCalendarState();
@@ -85,9 +85,9 @@ class _EmorphisWeeklyCalendarState extends State<EmorphisWeeklyCalendar> {
 
     setState(() {
       if (details.primaryVelocity! < 0) {
-        _focusedDay = _focusedDay.add(Duration(days: 7));
+        _focusedDay = _focusedDay.add(const Duration(days: 7));
       } else if (details.primaryVelocity! > 0) {
-        _focusedDay = _focusedDay.subtract(Duration(days: 7));
+        _focusedDay = _focusedDay.subtract(const Duration(days: 7));
       }
     });
   }
@@ -120,7 +120,7 @@ class _EmorphisWeeklyCalendarState extends State<EmorphisWeeklyCalendar> {
           icon: Icon(Icons.arrow_back),
           onPressed: () {
             setState(() {
-              _focusedDay = _focusedDay.subtract(Duration(days: 7));
+              _focusedDay = _focusedDay.subtract(const Duration(days: 7));
             });
           },
         ),
@@ -132,7 +132,7 @@ class _EmorphisWeeklyCalendarState extends State<EmorphisWeeklyCalendar> {
           icon: Icon(Icons.arrow_forward),
           onPressed: () {
             setState(() {
-              _focusedDay = _focusedDay.add(Duration(days: 7));
+              _focusedDay = _focusedDay.add(const Duration(days: 7));
             });
           },
         ),

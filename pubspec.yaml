@@ -1,6 +1,6 @@
 name: emorphiscalendar
 description: "Highly customizable, feature-packed calendar widget for Flutter, supporting week, month, events, holidays, and localization."
-version: 0.0.3
+version: 0.0.4
 authors:
   - Chetan Kailodia <chetan.kailodia@emorphis.in>
 

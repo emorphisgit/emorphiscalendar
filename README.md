@@ -6,9 +6,9 @@
 
 Highly customizable, feature-packed calendar widget for Flutter.
 
-| ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/gif/week_month.gif) | ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/gif/event.gif) | ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/gif/holiday.gif) |
-|:-------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------:|
-|                              **Emorphis Week Month Calendar** with custom styles                              |                                **Emorphis Event Calendar** with custom builders                                 |                               **Emorphis Holiday Calendar** with custom builders                                |
+| ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/gif/week_month.gif) | ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/gif/event.gif) | ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/gif/holiday.gif) | ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/gif/customweek.gif) |
+|:-------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------:|
+|                              **Emorphis Week Month Calendar** with custom styles                              |                                **Emorphis Event Calendar** with custom builders                                 |                               **Emorphis Holiday Calendar** with custom builders                                |                    **Emorphis Custom Week Calendar** with custom builders                    |
 
 
 ## Description
@@ -34,7 +34,7 @@ Add this package to your project by including it in your pubspec.yaml file:
 dependencies:
   flutter:
     sdk: flutter
-  emorphiscalendar: ^0.0.3
+  emorphiscalendar: ^0.0.4
 ```
 
 Then, run:
@@ -92,6 +92,44 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
+
+# Custom Weekly Calendar
+
+| ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/images/customweek.png) | ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/images/customweek2.png) |
+|:-----------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
+|                                 `Custom Weekly Calendar`                                  |                                     `Custom Weekly Calendar`                                     |
+
+Make sure to check out [Weekly](https://github.com/emorphisgit/emorphiscalendar/blob/main/example/lib/my_calendar_screen/custom_week.dart) for more details.
+
+```
+import 'package:emorphiscalendar/calendar/custom_week_day.dart';
+
+class CustomWeekScreen extends StatelessWidget {
+  const CustomWeekScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Custom Week Day'),
+        backgroundColor: Colors.blue.withOpacity(0.5),
+      ),
+      body: Center(
+        child: CustomWeekDay(
+          onDateSelected: (date) {
+            print(date);
+          },
+        ),
+      ),
+    );
+  }
+}
+
+```
+
+
+
 
 # Event List
 

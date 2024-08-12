@@ -2,6 +2,7 @@
 // Organization: Emorphis Technology
 //
 
+import 'package:example/my_calendar_screen/custom_week.dart';
 import 'package:example/my_calendar_screen/holiday_calendar.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class MyCalendarListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calendar List View'),
+        title: const Text('Calendar List View'),
         backgroundColor: Colors.blue.withOpacity(0.5),
       ),
       body: Padding(
@@ -32,7 +33,17 @@ class MyCalendarListView extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(height: 10), // Space between the items
+            const SizedBox(height: 10), // Space between the items
+            MyCalendarListTile(
+              title: 'Custom Week',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const CustomWeekScreen()),
+                );
+              },
+            ),
+            const SizedBox(height: 10), // Space between the items
             MyCalendarListTile(
               title: 'Month',
               onTap: () {

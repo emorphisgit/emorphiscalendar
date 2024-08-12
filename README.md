@@ -6,7 +6,7 @@
 
 Highly customizable, feature-packed calendar widget for Flutter.
 
-| ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/gif/week_month.gif) | ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/gif/event.gif) | ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/gif/holiday.gif) |
+| ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/gif/week_month.gif) | ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/gif/event.gif) | ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/gif/holiday.gif) |
 |:-------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------:|
 |                              **Emorphis Week Month Calendar** with custom styles                              |                                **Emorphis Event Calendar** with custom builders                                 |                               **Emorphis Holiday Calendar** with custom builders                                |
 
@@ -34,7 +34,7 @@ Add this package to your project by including it in your pubspec.yaml file:
 dependencies:
   flutter:
     sdk: flutter
-  emorphiscalendar: ^0.0.2
+  emorphiscalendar: ^0.0.3
 ```
 
 Then, run:
@@ -47,7 +47,7 @@ flutter pub get
 
 # Monthly Calendar
 
-| ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/month.png) | ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/month_2.png) |
+| ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/images/month.png) | ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/images/month_2.png) |
 |:-------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------:|
 |                                     `Monthly Calendar`                                      |                                      `Monthly Calendar`                                       |
 
@@ -71,9 +71,9 @@ class MyApp extends StatelessWidget {
 
 # Weekly Calendar
 
-| ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/week.png) | ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/week_2.png) |
-|:------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------:|
-|                                     `Weekly Calendar`                                      |                                      `Weekly Calendar`                                       |
+| ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/images/week.png) | ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/images/week_2.png) |
+|:--------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------:|
+|                                   `Weekly Calendar`                                    |                                      `Weekly Calendar`                                       |
 
 Make sure to check out [Weekly](https://github.com/emorphisgit/emorphiscalendar/blob/main/example/lib/my_calendar_screen/week_calendar.dart) for more details.
 
@@ -97,7 +97,7 @@ class MyApp extends StatelessWidget {
 
 The event list is automatically shown when you select a date with events in either the monthly or weekly calendar views. Customize the event list by modifying the _buildEventList method in the emorphis_calendar.dart file.
 
-| ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/event.png) | ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/event_2.png) |
+| ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/images/event.png) | ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/images/event_2.png) |
 |:-------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------:|
 |                                      `Event Calendar`                                       |                                       `Event Calendar`                                        |
 
@@ -237,7 +237,7 @@ class _EventCalendarScreenState extends State<EventCalendarScreen> {
 # Holiday Calendar
 
 
-| ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/holidat_nill.png) | ![Image](https://github.com/emorphisgit/emorphiscalendar/blob/main/assets/images/holiday.png) |
+| ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/images/holidat_nill.png) | ![Image](https://github.com/emorphisgit/emorphiscalendar/raw/main/assets/images/holiday.png) |
 |:--------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------:|
 |                                        `Select Day Holiday`                                        |                                      `Holiday Calendar`                                       |
 

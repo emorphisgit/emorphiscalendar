@@ -3,6 +3,12 @@
 
 import 'package:flutter/material.dart';
 
+/// A custom widget that displays a horizontal scrolling list of dates for the entire year.
+///
+/// The selected date is highlighted, and a callback is triggered when a date is selected.
+///
+/// [initialSelectedDate] is the date that should be selected initially when the widget is loaded.
+/// [onDateSelected] is a callback that returns the selected date when the user selects a date from the list.
 class CustomWeekDay extends StatefulWidget {
   final DateTime? initialSelectedDate;
   final void Function(DateTime)? onDateSelected;
@@ -18,10 +24,13 @@ class CustomWeekDay extends StatefulWidget {
 }
 
 class _CustomWeekDayState extends State<CustomWeekDay> {
-  late DateTime selectedDate;
-  late int currentDateSelectedIndex;
-  final ScrollController scrollController = ScrollController();
+  late DateTime selectedDate; // The currently selected date
+  late int
+      currentDateSelectedIndex; // The index of the currently selected date in the list
+  final ScrollController scrollController =
+      ScrollController(); // Controller to track the scroll position of the ListView
 
+  // List of month abbreviations
   List<String> listOfMonths = [
     "Jan",
     "Feb",
@@ -37,12 +46,15 @@ class _CustomWeekDayState extends State<CustomWeekDay> {
     "Dec"
   ];
 
+  // List of day abbreviations
   List<String> listOfDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   @override
   void initState() {
     super.initState();
+    // Set the selected date to either the initial selected date or the current date
     selectedDate = widget.initialSelectedDate ?? DateTime.now();
+    // Calculate the index of the selected date relative to the current date
     currentDateSelectedIndex = DateTime.now().difference(selectedDate).inDays;
   }
 
@@ -50,7 +62,7 @@ class _CustomWeekDayState extends State<CustomWeekDay> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Display selected date
+        // Display the selected date in a specific format
         Container(
           height: 30,
           margin: const EdgeInsets.only(left: 10),
@@ -65,21 +77,23 @@ class _CustomWeekDayState extends State<CustomWeekDay> {
           ),
         ),
         const SizedBox(height: 10),
-        // Calendar widget
+        // Display the horizontal scrolling list of dates
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: SizedBox(
             height: 90,
             child: ListView.separated(
               separatorBuilder: (BuildContext context, int index) {
-                return SizedBox(width: 10);
+                return const SizedBox(width: 10);
               },
-              itemCount: 365,
+              itemCount: 365, // Number of days to display (one year)
               controller: scrollController,
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
-                DateTime date = DateTime.now().add(Duration(days: index));
-                bool isSelected = currentDateSelectedIndex == index;
+                DateTime date = DateTime.now().add(Duration(
+                    days: index)); // Calculate the date based on the index
+                bool isSelected = currentDateSelectedIndex ==
+                    index; // Check if the current index is the selected one
 
                 return InkWell(
                   onTap: () {
@@ -87,6 +101,7 @@ class _CustomWeekDayState extends State<CustomWeekDay> {
                       currentDateSelectedIndex = index;
                       selectedDate = date;
                     });
+                    // Trigger the callback when a date is selected
                     if (widget.onDateSelected != null) {
                       widget.onDateSelected!(date);
                     }
@@ -100,7 +115,7 @@ class _CustomWeekDayState extends State<CustomWeekDay> {
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.shade400,
-                          offset: Offset(3, 3),
+                          offset: const Offset(3, 3),
                           blurRadius: 5,
                         ),
                       ],
@@ -109,6 +124,7 @@ class _CustomWeekDayState extends State<CustomWeekDay> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        // Display month abbreviation
                         Text(
                           listOfMonths[date.month - 1],
                           style: TextStyle(
@@ -116,7 +132,8 @@ class _CustomWeekDayState extends State<CustomWeekDay> {
                             color: isSelected ? Colors.white : Colors.grey,
                           ),
                         ),
-                        SizedBox(height: 1),
+                        const SizedBox(height: 1),
+                        // Display day of the month
                         Text(
                           date.day.toString(),
                           style: TextStyle(
@@ -126,6 +143,7 @@ class _CustomWeekDayState extends State<CustomWeekDay> {
                           ),
                         ),
                         const SizedBox(height: 0),
+                        // Display day of the week
                         Text(
                           listOfDays[date.weekday - 1],
                           style: TextStyle(
